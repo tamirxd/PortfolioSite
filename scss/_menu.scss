@@ -13,6 +13,11 @@
     margin: 0 0 5px 0; // top, right, bottom ,left
     background: #fff;
     @include easeOut;
+
+    // &:hover {           // Hoevering will only change the color of one line (in X too)
+    //   transform: transition 0.3 all;
+    //   background: $secondary-color;
+    // }
   }
 
   // Rotatation to menu with X on menu
