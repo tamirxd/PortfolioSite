@@ -1,0 +1,35 @@
+$primary-color: #444; //dark grey
+$secondary-color: #eece1a;
+$show-home-image: true;
+$home-image: url(../img/background.jpg);
+$background-opacity: 0.65;
+
+@mixin easeOut {
+  // Like a function
+  transition: all 0.5s ease-out; // first parameter: what to transition, second: time, third:transition effect
+}
+
+// This goes in side body
+@mixin backgorund {
+  @if $show-home-image {
+    &#bg-img {
+      // We put this mixin in body tag, so the effect is for body tag with id of bg-image only
+      background: $home-image;
+      background-attachment: fixed;
+      background-size: cover; // Cover the entire space
+
+      // Pseudo element. Instead of creating an overlay div
+      &:after {
+        // We want the overlay to cover all the body
+        content: ""; // This field is a must when using after or before.
+        position: absolute;
+        top: 0; // Start at top,right:0
+        right: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1; // We want the overlay to be behind the text
+        background: rgba($primary-color, $background-opacity);
+      }
+    }
+  }
+}
