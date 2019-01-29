@@ -1,0 +1,39 @@
+.menu-btn {
+  position: absolute; // We want it to allways be top right corner
+  z-index: 3; // We want it aat the very front
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  @include easeOut;
+
+  .btn-line {
+    // We build the menu button from 3 btn-lines
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0; // top, right, bottom ,left
+    background: #fff;
+    @include easeOut;
+  }
+
+  // Rotatation to menu with X on menu
+  &.close {
+    transform: rotate(180deg);
+
+    .btn-line {
+      // Select each menu button line seperatly
+      // Line 1  - rotate into \ (part of X)
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); // Translate move the item. x & y values
+      }
+      // Line 2 - Hide
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      // Line 3- Rotate into / (part of X)
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); // Translate move the item. x & y values
+      }
+    }
+  }
+}
