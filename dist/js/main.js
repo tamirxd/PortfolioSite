@@ -24,7 +24,7 @@ function toggleMenu() {
     menu.classList.remove("show");
     menuNav.classList.remove("show");
     menuBranding.classList.remove("show");
-    navItems.forEach(navItem => navItem.classList.remove("close"));
+    navItems.forEach(navItem => navItem.classList.remove("show"));
 
     showMenu = false;
   }
