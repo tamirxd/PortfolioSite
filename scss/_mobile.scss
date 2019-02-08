@@ -46,7 +46,8 @@
   .menu-nav {
     height: 75vh;
     // So the portrait will be smaller than menu items
-    transform: translate3d(-100%, 0, 0); // From the left side
+    transform: translate3d(-100%, 0, 0);
+    // From the left side
     font-size: 24px;
   }
   .menu-branding {
@@ -54,8 +55,7 @@
     transform: translate3d(100%, 0, 0); // From the right side
     .portrait {
       background: url(../img/portrait_small.jpg);
-      width: 150px;
-      // Instead of 250 for normal
+      width: 150px; // Instead of 250 for normal
       height: 150px;
     }
   }
