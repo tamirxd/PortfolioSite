@@ -1,7 +1,7 @@
-$primary-color: #444; //dark grey
-$secondary-color: #eece1a;
+$primary-color: #686868; //dark grey
+$secondary-color: #5c9ead;
 $show-home-image: true;
-$home-image: url(../img/background.jpg);
+$home-image: url("../img/background-night1.jpg");
 $background-opacity: 0.65;
 
 @mixin easeOut {
@@ -14,9 +14,12 @@ $background-opacity: 0.65;
   @if $show-home-image {
     &#bg-img {
       // We put this mixin in body tag, so the effect is for body tag with id of bg-image only
-      background: $home-image;
+      background-image: $home-image;
+      //filter: blur(1rem);
       background-attachment: fixed;
       background-size: cover; // Cover the entire space
+      //background: rgba(lighten($primary-color, 2), 0.5);
+      //background-blend-mode: screen;
 
       // Pseudo element. Instead of creating an overlay div
       &:after {
@@ -28,7 +31,7 @@ $background-opacity: 0.65;
         height: 100%;
         width: 100%;
         z-index: -1; // We want the overlay to be behind the text
-        background: rgba($primary-color, $background-opacity);
+        //background: rgba($primary-color, $background-opacity);
       }
     }
   }
@@ -54,14 +57,14 @@ $background-opacity: 0.65;
 
 @mixin mediaMd {
   @media screen and (max-width: 768px) {
-    // Any css we put in here will work only if // screen width is < 500 px
+    // Any css we put in here will work only if // screen width is < 768 px
     @content;
   }
 }
 
 @mixin mediaLg {
   @media screen and (min-width: 769) and (max-width: 1170px) {
-    // Any css we put in here will work only if // screen width is < 500 px
+    // Any css we put in here will work only if // screen width is < 1170 px
     @content;
   }
 }

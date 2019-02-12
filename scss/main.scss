@@ -2,10 +2,20 @@
 @import "menu";
 // We import the media query's at the bottom. We want them to run after all the css has been ran.
 
+// ALL Items
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
 body {
   @include backgorund;
-  background: $primary-color;
-  height: 100%;
+  //background: $primary-color;
+  //min-height: calc(100vh-60px);
+  //position: relative;
+  height: 100vh;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: set-text-color(
@@ -49,8 +59,9 @@ header {
 main {
   padding: 4rem; // deleted: height: 100%; 100% means it will be 100% of height of the content inside it. NOT the whole page
   min-height: calc(
-    100vh-60px
+    100vh
   ); // 60 px is the height of the footer. this way we make sure it will allways be at the bottom
+  background: rgba(lighten($primary-color, 2), 0.5);
   .icons {
     // Nesting - icon classes inside main
     margin-top: 1rem;
@@ -64,17 +75,13 @@ main {
     }
   }
   &#home {
-    overflow: hidden;
-    // We dont want scroll bars on the homepage
+    overflow: hidden; // We dont want scroll bars on the homepage
     h1 {
       margin-top: 20vh; // Vh is viewport height  // Theres 100 "Vh" in a screen
     }
   }
 }
-// ALL Items
-* {
-  box-sizing: border-box;
-}
+
 // About page aligning with grid-css
 .about-info {
   display: grid;
@@ -91,8 +98,12 @@ main {
     border: $secondary-color 3px solid;
   }
   .bio {
+    display: block;
+    box-shadow: 0px 0px 100px 1px rgba(darken($primary-color, 5), 0.4); /* change to alter the effect*/
+    background: rgba($primary-color, 0.1);
     grid-area: bio;
     font-size: 1.5rem;
+    font-weight: 600;
   }
   .job-1 {
     grid-area: job1;
@@ -104,9 +115,13 @@ main {
     grid-area: job3;
   }
   .job {
-    background: lighten($primary-color, 5);
+    background: rgba(darken($primary-color, 5), 0.9);
     padding: 0.5rem;
     border-bottom: $secondary-color 5px solid;
+    // border-left: #000 1px groove;
+    // border-right: #000 1px solid;
+    // border-top: #000 1px solid;
+    //border: 2px solid $secondary-color;
   }
 }
 // Work/Projects
@@ -118,9 +133,8 @@ main {
     width: 100%;
     border: 3px #fff solid;
     &:hover {
-      opacity: 0.5;
       border-color: $secondary-color;
-      @include easeOut;
+      opacity: 0.95;
     }
   }
 }
@@ -131,7 +145,9 @@ main {
   justify-content: space-evenly;
   align-items: center;
   margin-top: 1rem;
+
   div {
+    background: rgba(darken($primary-color, 5), 0.6);
     font-size: 1.5rem;
     border: 3px #fff solid;
     padding: 1.5rem 2.5rem; // 1.5 on top&bottom, 2.5 on left&right
@@ -148,6 +164,24 @@ main {
     }
   }
 }
+// Technologies over images
+.technologies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5rem;
+  font-size: 3rem;
+  color: $secondary-color;
+  position: absolute;
+  padding: 0.5rem 0.5rem;
+  align-items: center;
+  div {
+    font-size: 1.5rem;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem; // 1.5 on top&bottom, 2.5 on left&right
+    margin-bottom: 3rem;
+  }
+}
+
 // Button styles
 .btn {
   // Basic button styles
@@ -174,8 +208,15 @@ main {
 #main-footer {
   text-align: center;
   padding: 1rem;
-  background: darken($primary-color, 10);
-  color: set-text-color($primary-color);
+  //background: darken($primary-color, 10);
+  background: #000;
+  color: set-text-color(#000);
   height: 60px;
+  border-top: 0.15rem solid $secondary-color;
+  bottom: 0;
+}
+
+.contact-footer {
+  border-bottom: 0.15rem solid $secondary-color;
 }
 @import "mobile";
