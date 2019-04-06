@@ -74,7 +74,11 @@ main {
       }
     }
   }
-  &#home {
+  &#home,
+  &#contact {
+    ::-webkit-scrollbar {
+      display: none; // Safari and Chrome
+    }
     overflow: hidden; // We dont want scroll bars on the homepage
     h1 {
       margin-top: 20vh; // Vh is viewport height  // Theres 100 "Vh" in a screen
